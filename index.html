@@ -122,7 +122,7 @@
       linear-gradient(180deg, #071223 0%, var(--night) 45%, var(--night-2) 100%);
     overflow: hidden;
   }
-  #snow { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
+  #heroNet { position: absolute; inset: 0; width: 100%; height: 100%; pointer-events: none; }
   .mountain { position: absolute; left: 0; right: 0; bottom: -1px; width: 100%; height: auto; }
   .hero-inner { position: relative; z-index: 2; width: 100%; padding-top: 68px; padding-bottom: 22vh; }
   .eyebrow {
@@ -138,7 +138,8 @@
     font-family: var(--serif); font-size: clamp(18px, 2.4vw, 26px);
     letter-spacing: .3em; margin-top: 18px; color: var(--ice);
   }
-  .hero-lead { max-width: 560px; margin-top: 28px; font-size: 17px; color: rgba(245,248,251,.85); }
+  .hero-lead { max-width: 700px; margin-top: 28px; font-size: clamp(19px, 1.6vw, 24px); line-height: 1.65; color: rgba(245,248,251,.9); }
+  @media (max-width: 620px) { .hero-inner { padding-bottom: 14vh; } }
   .hero-cta { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 34px; }
   .btn {
     display: inline-flex; align-items: center; gap: 8px;
@@ -163,22 +164,18 @@
   .section-label::before { content: ""; width: 28px; height: 1px; background: currentColor; }
   .section h2 { font-size: clamp(30px, 4.4vw, 48px); }
 
-  /* Motto band */
-  .motto-band { background: var(--night-2); color: var(--snow); padding: clamp(64px, 9vw, 110px) 0; }
-  .motto-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(32px, 6vw, 80px); align-items: center; }
-  .motto-band .section-label { color: var(--ice); }
-  .motto-band blockquote { margin: 0; font-family: var(--serif); font-size: clamp(22px, 2.6vw, 30px); line-height: 1.6; }
-  .motto-pillars { display: grid; gap: 20px; }
-  .pillar { display: grid; grid-template-columns: 52px 1fr; gap: 16px; align-items: start; }
-  .pillar-icon {
-    width: 52px; height: 52px; border-radius: 50%;
-    border: 1px solid rgba(169,210,236,.35);
-    display: grid; place-items: center; color: var(--ice);
-  }
-  .pillar-icon svg { width: 26px; height: 26px; }
-  .pillar h3 { font-size: 18px; margin-bottom: 4px; }
-  .pillar p { margin: 0; color: rgba(245,248,251,.75); font-size: 15px; }
-  @media (max-width: 820px) { .motto-grid { grid-template-columns: 1fr; } }
+  /* Collaboration */
+  .collab { background: var(--paper); border-bottom: 1px solid var(--line); }
+  .collab-statement { font-family: var(--serif); font-size: clamp(23px, 3vw, 36px); line-height: 1.5; max-width: 940px; margin: 8px 0 0; }
+  .collab-statement em { font-style: normal; color: var(--accent-dark); }
+  .collab-note { max-width: 760px; margin: 24px 0 0; font-size: clamp(16px, 1.3vw, 18px); color: var(--muted); }
+  .collab-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 44px; }
+  .collab-card { background: #fff; border: 1px solid var(--line); border-radius: 18px; padding: 30px 28px; }
+  .collab-card .tag { display: block; font-size: 11px; letter-spacing: .18em; text-transform: uppercase; color: var(--accent-dark); margin-bottom: 10px; }
+  .collab-card h3 { font-size: 20px; margin-bottom: 8px; }
+  .collab-card p { margin: 0; color: var(--muted); font-size: 15px; }
+  .collab-cta { margin-top: 32px; }
+  @media (max-width: 760px) { .collab-grid { grid-template-columns: 1fr; } }
 
   /* Vision */
   .vision-statement {
@@ -198,58 +195,11 @@
   .vision-body p { font-size: 18px; color: #2b3a4c; }
   @media (max-width: 860px) { .vision-grid { grid-template-columns: 1fr; } }
 
-  /* Philosophy */
-  .philosophy-head { display: flex; justify-content: space-between; align-items: end; gap: 32px; flex-wrap: wrap; margin-bottom: 56px; }
-  .philosophy-head p { max-width: 440px; color: var(--muted); margin: 0; }
-  .principles { list-style: none; margin: 0; padding: 0; border-top: 1px solid var(--line); }
-  .principle {
-    display: grid; grid-template-columns: 90px 1fr 260px; gap: clamp(20px, 4vw, 48px);
-    padding: 44px 0; border-bottom: 1px solid var(--line);
-  }
-  .principle .no { font-family: var(--serif); font-size: 44px; color: var(--accent); line-height: 1; }
-  .principle h3 { font-size: clamp(21px, 2.3vw, 26px); margin-bottom: 14px; }
-  .principle p { color: #33445a; margin: 0; }
-  .principle aside {
-    align-self: start; background: var(--paper); border-radius: 14px; padding: 22px;
-    font-size: 14px; color: var(--muted); line-height: 1.65;
-  }
-  .principle aside .stat { display: block; font-family: var(--serif); font-size: 30px; color: var(--night); line-height: 1.2; margin-bottom: 6px; }
-  .principle aside svg { width: 34px; height: 34px; color: var(--accent); margin-bottom: 10px; }
-  @media (max-width: 900px) {
-    .principle { grid-template-columns: 56px 1fr; }
-    .principle .no { font-size: 32px; }
-    .principle aside { grid-column: 2; }
-  }
-  @media (max-width: 520px) {
-    .principle { grid-template-columns: 1fr; gap: 12px; }
-    .principle aside { grid-column: auto; }
-  }
-
-  /* Photo band */
-  .photo-band { padding: 0; }
-  .photo-grid { display: grid; grid-template-columns: 2fr 1fr; gap: 16px; }
-  .photo { position: relative; margin: 0; border-radius: 18px; overflow: hidden; background: var(--night); }
-  .photo img { width: 100%; height: 440px; object-fit: cover; }
-  .photo figcaption {
-    position: absolute; left: 0; right: 0; bottom: 0;
-    padding: 48px 22px 18px; color: var(--snow); font-size: 14px; line-height: 1.6;
-    background: linear-gradient(180deg, transparent, rgba(7,18,35,.85));
-  }
-  .photo figcaption strong { display: block; font-family: var(--serif); font-size: 19px; font-weight: 700; }
-  @media (max-width: 820px) {
-    .photo-grid { grid-template-columns: 1fr; }
-    .photo img { height: 300px; }
-  }
-  .principle .kicker { font-family: var(--serif); font-size: 16px; color: var(--accent-dark); margin: 0 0 6px; }
-  .practice { list-style: none; margin: 18px 0 0; padding: 0; display: grid; gap: 8px; }
-  .practice li { position: relative; padding-left: 22px; font-size: 15px; color: #33445a; line-height: 1.7; }
-  .practice li::before { content: ""; position: absolute; left: 2px; top: .8em; width: 10px; height: 2px; background: var(--accent); }
   .vision-goals { list-style: none; margin: 28px 0 0; padding: 0; display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
   .vision-goals li { display: flex; gap: 12px; background: var(--paper); border-radius: 14px; padding: 18px; font-size: 14px; color: var(--muted); line-height: 1.65; }
   .vision-goals svg { width: 20px; height: 20px; flex: none; color: var(--accent); margin-top: 2px; }
   .vision-goals strong { display: block; color: var(--ink); font-size: 15px; margin-bottom: 2px; }
   @media (max-width: 600px) { .vision-goals { grid-template-columns: 1fr; } }
-  .principle aside img { width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 10px; margin-bottom: 14px; }
 
   /* Technology */
   .build { background: var(--night); color: var(--snow); }
@@ -387,8 +337,6 @@
   .footer-links a { text-decoration: none; }
   .footer-links a:hover { color: var(--snow); }
   .footer-bottom { border-top: 1px solid rgba(255,255,255,.08); margin-top: 40px; padding-top: 22px; display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
-  .credits { margin: 18px 0 0; font-size: 12px; line-height: 1.7; color: rgba(245,248,251,.45); }
-  .credits a { color: rgba(245,248,251,.6); }
 
   /* Reveal on scroll */
   .reveal { opacity: 0; transform: translateY(18px); transition: opacity .8s ease, transform .8s ease; }
@@ -420,8 +368,8 @@
     </button>
     <ul class="nav-links" id="navLinks">
       <li><a href="#vision"><span class="en">Vision</span><span class="ja">ビジョン</span></a></li>
-      <li><a href="#philosophy"><span class="en">Philosophy</span><span class="ja">経営理念</span></a></li>
       <li><a href="#build"><span class="en">Technology</span><span class="ja">技術紹介</span></a></li>
+      <li><a href="#collaborate"><span class="en">Collaborate</span><span class="ja">協働</span></a></li>
       <li><a href="#contact"><span class="en">Contact</span><span class="ja">お問い合わせ</span></a></li>
       <li><a class="nav-cta" href="#call"><span class="en">Book a call</span><span class="ja">通話予約</span></a></li>
       <li class="lang-li"><button class="lang-btn" id="langBtn" type="button" aria-label="Switch language"><span class="en">日本語</span><span class="ja">English</span></button></li>
@@ -433,10 +381,10 @@
 
 <!-- ============ Hero ============ -->
 <section class="hero" aria-labelledby="hero-title">
-  <canvas id="snow" aria-hidden="true"></canvas>
+  <canvas id="heroNet" aria-hidden="true"></canvas>
 
   <div class="wrap hero-inner">
-    <p class="eyebrow"><span class="en">Sapporo, Hokkaido · Information technology · AI · Blockchain</span><span class="ja">北海道札幌市 · 情報技術 · AI · ブロックチェーン</span></p>
+    <p class="eyebrow"><span class="en">Sapporo, Hokkaido · Information technology · AI</span><span class="ja">北海道札幌市 · 情報技術 · AI</span></p>
     <h1 id="hero-title">
       <span class="en"><span class="line">See farther.</span><span class="line">Create together.</span></span>
       <span class="ja"><span class="line">遠くを見る。</span><span class="line">共に創る。</span></span>
@@ -448,8 +396,6 @@
       <span class="ja">藻岩山の頂からは、札幌の街がひと目で見渡せます。そして雪は、どこにも同じようには降りません。深く積もる場所があり、わずかに覆うだけの場所があります。人の能力と、それを生かす環境も、同じように偏っています。私たちは情報技術の会社として、その二つを国境を越えて結びます。才能が必要な環境と出会い、これまでにない事業が生まれるように。</span>
     </p>
     <div class="hero-cta">
-      <a class="btn btn-primary" href="#vision"><span class="en">Our vision</span><span class="ja">ビジョンを見る</span>
-        <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M8 3v10M3.5 8.5 8 13l4.5-4.5"/></svg></a>
       <a class="btn btn-ghost" href="#call"><span class="en">Book a call</span><span class="ja">通話を予約</span></a>
     </div>
   </div>
@@ -481,31 +427,42 @@
   </svg>
 </section>
 
-<!-- ============ Motto ============ -->
-<section class="motto-band" aria-labelledby="motto-title">
-  <div class="wrap motto-grid">
-    <div class="reveal">
-      <p class="section-label" id="motto-title"><span class="en">Our motto</span><span class="ja">モットー</span></p>
-      <blockquote>
-        <span class="en">We learned how to build from two teachers right outside our window: a mountain, and the snow.</span>
-        <span class="ja">ものづくりの姿勢は、窓の外にいる二人の先生から教わりました。山と、雪です。</span>
-      </blockquote>
+<!-- ============ Collaboration ============ -->
+<section class="section collab" id="collaborate" aria-labelledby="collab-title">
+  <div class="wrap">
+    <p class="section-label"><span class="en">How we work together</span><span class="ja">協働のかたち</span></p>
+    <h2 id="collab-title" class="collab-statement reveal">
+      <span class="en">Building this takes more people than any one country holds. So we work through long-term partnership — <em>not employment, not a standard contract, and not an internship</em>.</span>
+      <span class="ja">これをつくるには、ひとつの国に収まらないほどの人が必要です。だから私たちは、長期的なパートナーシップという形をとります。<em>雇用ではなく、通常の業務委託契約でもなく、インターンシップでもありません。</em></span>
+    </h2>
+    <p class="collab-note reveal">
+      <span class="en">A partnership means we build something over years, carry the risk together, and share what it earns. We intend to succeed by rigorously generating profit — and there is real room to contribute even if you are not a technical specialist.</span>
+      <span class="ja">パートナーシップとは、何年もかけて共に築き、リスクを共に負い、得られたものを分かち合うということです。私たちは利益を厳格に生み出すことで成功するつもりです。そして技術の専門家でなくても、貢献できる余地は確かにあります。</span>
+    </p>
+    <div class="collab-grid">
+      <div class="collab-card reveal">
+        <span class="tag"><span class="en">What it is</span><span class="ja">これは</span></span>
+        <h3><span class="en">A long-term partnership</span><span class="ja">長期のパートナーシップ</span></h3>
+        <p><span class="en">Years, not a single project. You are neither staff nor a vendor: you hold a stake in what we build together, and you stay with it as it grows.</span><span class="ja">ひとつの案件ではなく、年単位の関係です。従業員でも外注先でもありません。共に築くものに持ち分を持ち、それが育っていく過程に関わり続けます。</span></p>
+      </div>
+      <div class="collab-card reveal">
+        <span class="tag"><span class="en">What it is not</span><span class="ja">これではない</span></span>
+        <h3><span class="en">Not a job, not an internship</span><span class="ja">雇用でもインターンでもない</span></h3>
+        <p><span class="en">No employment, no ordinary outsourcing contract, and no unpaid experience traded for a line on a résumé. Those arrangements are built to end. A partnership is built to last.</span><span class="ja">雇用でも、通常の業務委託でもなく、履歴書の一行と引き換えの無償の経験でもありません。そうした関係は終わりを前提としていますが、パートナーシップは続くことを前提としています。</span></p>
+      </div>
+      <div class="collab-card reveal">
+        <span class="tag"><span class="en">How it pays</span><span class="ja">成り立たせ方</span></span>
+        <h3><span class="en">Profit, rigorously</span><span class="ja">利益を、厳格に</span></h3>
+        <p><span class="en">This is not goodwill. We intend to succeed by generating real profit and measuring it honestly — and a partnership means the people who created that profit share in it.</span><span class="ja">これは善意の取り組みではありません。実際の利益を生み、それを誠実に測ることで成功するつもりです。そしてパートナーシップとは、その利益を生み出した人々が分かち合うということです。</span></p>
+      </div>
+      <div class="collab-card reveal">
+        <span class="tag"><span class="en">Who can join</span><span class="ja">誰が加われるか</span></span>
+        <h3><span class="en">Technical skill is not a requirement</span><span class="ja">技術力は必須ではありません</span></h3>
+        <p><span class="en">Engineers and researchers, yes — and equally the people who find customers, open markets, translate, design, write and keep an organisation running. There is plenty to contribute without writing a line of code.</span><span class="ja">エンジニアや研究者はもちろん、顧客を見つける人、市場を開く人、翻訳する人、デザインする人、文章を書く人、組織を動かす人も同じように。コードを一行も書かなくても、貢献できることはたくさんあります。</span></p>
+      </div>
     </div>
-    <div class="motto-pillars reveal">
-      <div class="pillar">
-        <div class="pillar-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round"><path d="M3 26 L13 10 L18 17 L22 12 L29 26 Z"/><path d="M13 10 L15.5 14 L18 12.5"/></svg></div>
-        <div>
-          <h3><span class="en">The mountain: see farther</span><span class="ja">山 ― 遠くを見る</span></h3>
-          <p><span class="en">Moiwa isn't tall, yet it shows you the whole city. It teaches us to step back, see the bigger picture, and choose a direction on purpose.</span><span class="ja">藻岩山は高い山ではありません。それでも街のすべてが見渡せます。一歩引いて全体を見つめ、目的をもって進む方向を選ぶことを、この山が教えてくれます。</span></p>
-        </div>
-      </div>
-      <div class="pillar">
-        <div class="pillar-icon"><svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><path d="M16 3v26M4.7 9.5l22.6 13M4.7 22.5l22.6-13"/><path d="M13 5.5 16 8l3-2.5M13 26.5 16 24l3 2.5M5 13.5l3.8-.6-1-3.6M27 18.5l-3.8.6 1 3.6M5 18.5l3.8.6-1 3.6M27 13.5l-3.8-.6 1-3.6"/></svg></div>
-        <div>
-          <h3><span class="en">The snow: create together</span><span class="ja">雪 ― 共に創る</span></h3>
-          <p><span class="en">One flake doesn't make a winter. Countless small contributions, each one different, become something extraordinary when they come together.</span><span class="ja">ひとひらだけでは、冬にはなりません。一つひとつ違う小さな力が集まったとき、かけがえのないものが生まれます。</span></p>
-        </div>
-      </div>
+    <div class="collab-cta">
+      <a class="btn btn-dark" href="#contact" data-topic="Collaboration"><span class="en">Talk to us about partnering</span><span class="ja">協働について相談する</span></a>
     </div>
   </div>
 </section>
@@ -555,256 +512,95 @@
   </div>
 </section>
 
-<!-- ============ Photo band ============ -->
-<div class="photo-band" aria-label="Sapporo">
-  <div class="wrap photo-grid">
-    <figure class="photo reveal">
-      <img src="images/photos/moiwa-night.jpg" alt="Sapporo's city lights at night, seen from the summit of Mount Moiwa" loading="lazy" width="1800" height="1013">
-      <figcaption>
-        <strong><span class="en">The view from Inkar-us-pe</span><span class="ja">インカルシペからの眺め</span></strong>
-        <span class="en">Sapporo at night, seen from the summit of Mount Moiwa.</span>
-        <span class="ja">藻岩山の山頂から見た札幌の夜景。</span>
-      </figcaption>
-    </figure>
-    <figure class="photo reveal">
-      <img src="images/photos/ice-sculptures-night.jpg" alt="Illuminated ice sculptures at night in Odori Park, with the Sapporo TV Tower behind" loading="lazy" width="1280" height="851">
-      <figcaption>
-        <strong><span class="en">Built in public</span><span class="ja">人の目に触れる場所で</span></strong>
-        <span class="en">Ice sculptures at the Snow Festival, Odori Park.</span>
-        <span class="ja">さっぽろ雪まつりの氷像（大通公園）。</span>
-      </figcaption>
-    </figure>
-  </div>
-</div>
-
-<!-- ============ Philosophy ============ -->
-<section class="section" id="philosophy" aria-labelledby="philosophy-title">
-  <div class="wrap">
-    <div class="philosophy-head">
-      <div>
-        <p class="section-label"><span class="en">Management philosophy</span><span class="ja">経営理念</span></p>
-        <h2 id="philosophy-title"><span class="en">Five principles from<br>a mountain and the snow</span><span class="ja">山と雪から学んだ<br>五つの原則</span></h2>
-      </div>
-      <p><span class="en">Each principle starts with something you can see from Sapporo, and ends with what it means for the people we work with.</span><span class="ja">どの原則も、札幌で目にできる風景から始まり、私たちと共に働く人々にとっての意味へとつながっています。</span></p>
-    </div>
-
-    <ol class="principles">
-      <!-- 1 -->
-      <li class="principle reveal">
-        <div class="no">01</div>
-        <div>
-          <p class="kicker"><span class="en">Perspective matters more than altitude.</span><span class="ja">大切なのは、高さより視点。</span></p>
-          <h3><span class="en">See the bigger picture. Choose our direction on purpose.</span><span class="ja">全体を見渡し、目的をもって進む。</span></h3>
-          <p class="en">At 531 meters, Moiwa is no towering peak, and it sits just minutes from downtown. Yet from the top you can see the whole city, without losing touch with the streets below. That is the view we bring to every project. We look past short-term trends to how people really live, and stay close to the people who use what we build.</p>
-          <p class="ja">藻岩山の標高は531メートル。高くそびえる山ではなく、都心からもすぐの場所にあります。それでも頂上からは、足元の暮らしとのつながりを保ったまま、街全体が見渡せます。私たちがどのプロジェクトにも持ち込むのは、この視点です。目先の流行の先にある人々の本当の暮らしを見つめながら、プロダクトを使う人々のすぐそばにいます。</p>
-          <ul class="practice">
-            <li><span class="en">We set ambitious goals, then focus where we can be exceptional.</span><span class="ja">大きな目標を掲げ、卓越できる領域に力を集中します。</span></li>
-            <li><span class="en">Every project starts by understanding the people it's for.</span><span class="ja">どのプロジェクトも、使う人を理解するところから始めます。</span></li>
-          </ul>
-        </div>
-        <aside>
-          <img src="images/photos/sapporo-winter.jpg" alt="Snow-covered Sapporo seen from above in winter" loading="lazy" width="1600" height="1031">
-          <span class="en">Sapporo in winter, seen from high ground. Every project starts by seeing the whole picture.</span>
-          <span class="ja">高台から見た冬の札幌。どのプロジェクトも、全体を見渡すことから始まります。</span>
-        </aside>
-      </li>
-      <!-- 2 -->
-      <li class="principle reveal">
-        <div class="no">02</div>
-        <div>
-          <p class="kicker"><span class="en">No two snowflakes are alike.</span><span class="ja">同じ雪の結晶は、ふたつとない。</span></p>
-          <h3><span class="en">Value each person. Grow stronger together.</span><span class="ja">一人ひとりを大切に、共に強くなる。</span></h3>
-          <p class="en">Every crystal takes its own path through the sky, and its shape is a record of that journey. Our people are the same: different backgrounds and different strengths, each one visible in the work. That variety is where our strength comes from.</p>
-          <p class="ja">雪の結晶は、それぞれ違う道をたどって空から舞い降り、その旅の記録を形に残しています。私たちの仲間も同じです。異なる経歴、異なる強みが、一人ひとりの仕事に表れています。その多様さこそが、私たちの強さです。</p>
-          <ul class="practice">
-            <li><span class="en">Knowledge is shared openly, not held back.</span><span class="ja">知識は抱え込まず、オープンに共有します。</span></li>
-            <li><span class="en">Everyone has a way to contribute and be recognized.</span><span class="ja">誰もが貢献でき、正当に認められる仕組みをつくります。</span></li>
-            <li><span class="en">Our work is as easy to check as a snowflake under a lens.</span><span class="ja">仕事は、レンズ越しの雪の結晶のように確かめられるものに。</span></li>
-          </ul>
-        </div>
-        <aside>
-          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" aria-hidden="true"><path d="M16 3v26M4.7 9.5l22.6 13M4.7 22.5l22.6-13"/><path d="M13 5.5 16 8l3-2.5M13 26.5 16 24l3 2.5M5 13.5l3.8-.6-1-3.6M27 18.5l-3.8.6 1 3.6M5 18.5l3.8.6-1 3.6M27 13.5l-3.8-.6 1-3.6"/></svg>
-          <span class="en">No two crystals alike — and each one can be examined, up close, for what it is.</span>
-          <span class="ja">同じ結晶はふたつとない。そして、どれもが近くで確かめられる。</span>
-        </aside>
-      </li>
-      <!-- 3 -->
-      <li class="principle reveal">
-        <div class="no">03</div>
-        <div>
-          <p class="kicker"><span class="en">Big things start small.</span><span class="ja">大きなことも、小さく始まる。</span></p>
-          <h3><span class="en">Make ideas real: in the open, and never finished.</span><span class="ja">アイデアを形に。開かれた場で、終わりなく。</span></h3>
-          <p class="en">In 1950, local students built six snow statues in a public park. Today around two million people come to see the festival. It grew because it was built in plain sight, with imagination and real craftsmanship, and because every year the sculptures come down and return better. That is how we build products, too.</p>
-          <p class="ja">1950年、地元の学生たちが公園に6つの雪像をつくりました。いまでは約200万人が訪れる祭りです。誰の目にも見える場所で、想像力と確かな職人技によってつくられ、毎年姿を消しては、さらに良くなって戻ってくる。だからこそ、ここまで育ちました。私たちのものづくりも同じです。</p>
-          <ul class="practice">
-            <li><span class="en">We start small and show our work early.</span><span class="ja">小さく始め、早い段階で形にして見せます。</span></li>
-            <li><span class="en">We balance originality with simplicity and reliability.</span><span class="ja">独創性と、シンプルさ・信頼性を両立させます。</span></li>
-            <li><span class="en">We ship, learn and rebuild, better every season.</span><span class="ja">リリースし、学び、つくり直す。季節ごとに、より良く。</span></li>
-          </ul>
-        </div>
-        <aside>
-          <img src="images/photos/snow-festival-odori.jpg" alt="Odori Park during the Sapporo Snow Festival, seen from above, with snow sculptures lining the park" loading="lazy" width="1100" height="1650" style="object-position: center 40%">
-          <span class="en">Odori Park during the Snow Festival. The work takes shape in the open, where everyone can watch it grow.</span>
-          <span class="ja">雪まつり期間中の大通公園。誰もが見守る中で、作品が形になっていきます。</span>
-        </aside>
-      </li>
-      <!-- 4 -->
-      <li class="principle reveal">
-        <div class="no">04</div>
-        <div>
-          <p class="kicker"><span class="en">Every snowflake comes from somewhere else.</span><span class="ja">どの雪も、遠くからやってくる。</span></p>
-          <h3><span class="en">Create with people from around the world.</span><span class="ja">世界中の人々と、共に創る。</span></h3>
-          <p class="en">Snow never forms where it lands. It travels in from far away, and only becomes a snowfall alongside millions of others. For us, working across borders isn't a growth strategy. It's who we are, like the Snow Festival's international contest, where teams from many countries carve side by side.</p>
-          <p class="ja">雪は、降り積もる場所で生まれるわけではありません。遠くから旅をしてきて、何百万もの仲間と出会い、はじめて雪景色になります。私たちにとって国境を越えた協働は、成長戦略ではなくアイデンティティそのもの。世界各国のチームが肩を並べて雪像を彫る、雪まつりの国際雪像コンクールのように。</p>
-          <ul class="practice">
-            <li><span class="en">We bring in partners from around the world from day one.</span><span class="ja">アイデアの初期段階から、国境を越えたパートナーと協働します。</span></li>
-            <li><span class="en">We listen across languages, and every perspective counts in decisions.</span><span class="ja">言語や文化を越えて耳を傾け、あらゆる視点を意思決定に生かします。</span></li>
-            <li><span class="en">We build long relationships on respect and shared success.</span><span class="ja">敬意と成功の共有によって、長く続く関係を築きます。</span></li>
-          </ul>
-        </div>
-        <aside>
-          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" aria-hidden="true"><circle cx="16" cy="16" r="12"/><path d="M4 16h24M16 4c3.5 3.4 5 7.4 5 12s-1.5 8.6-5 12c-3.5-3.4-5-7.4-5-12s1.5-8.6 5-12z"/></svg>
-          <span class="en">Every flake arrives from somewhere else. That is how a snowfall begins.</span>
-          <span class="ja">どのひとひらも、どこか別の場所から。雪景色はそうして始まる。</span>
-        </aside>
-      </li>
-      <!-- 5 -->
-      <li class="principle reveal">
-        <div class="no">05</div>
-        <div>
-          <p class="kicker"><span class="en">Winter's snow becomes spring's water.</span><span class="ja">冬の雪は、春の水になる。</span></p>
-          <h3><span class="en">Earn trust through the quality of our work.</span><span class="ja">仕事の質で、信頼を得る。</span></h3>
-          <p class="en">Every spring, Sapporo's snow melts into the rivers that supply the city's water. Nobody thinks about it. It simply works. The technology we're proudest of will be like that, quietly part of daily life. And that only happens when people can trust it completely.</p>
-          <p class="ja">毎年春になると、札幌の雪は解けて川に流れ込み、街の暮らしを支える水になります。誰も意識することなく、ただ確かにそこにある。私たちが最も誇れるテクノロジーも、そんなふうに日々の暮らしに溶け込むものでしょう。それは、心から信頼されてはじめて実現します。</p>
-          <ul class="practice">
-            <li><span class="en">We protect the information people entrust to us.</span><span class="ja">託された情報を、確実に守ります。</span></li>
-            <li><span class="en">We communicate honestly and deliver dependably.</span><span class="ja">誠実に伝え、確実に届けます。</span></li>
-            <li><span class="en">We invest in our people, so the work keeps getting better.</span><span class="ja">人に投資し、仕事の質を高め続けます。</span></li>
-          </ul>
-        </div>
-        <aside>
-          <svg viewBox="0 0 32 32" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round" aria-hidden="true"><path d="M16 4c5 6.5 8 11 8 15a8 8 0 0 1-16 0c0-4 3-8.5 8-15z"/><path d="M12.5 20a3.5 3.5 0 0 0 3.5 3.5"/></svg>
-          <span class="en">Winter's snow becomes spring's water — trusted, quiet, and everywhere.</span>
-          <span class="ja">冬の雪は春の水に。静かに、確かに、暮らしのすみずみへ。</span>
-        </aside>
-      </li>
-    </ol>
-  </div>
-</section>
-
 <!-- ============ Technology ============ -->
-<!-- Technology: keep this section about capability, not a project list — the mission above is the argument. Replace the tool names below with SnowMoiwa Software's actual stack as it settles. -->
+<!-- PROPOSAL: the product family below (Moiwa, Moiwa Assist / Agents / Crystal) is proposed
+     positioning, not shipped software. Copy is deliberately written as what we are building,
+     not as what exists. Confirm the names and claims before this goes live. -->
 <section class="section build" id="build" aria-labelledby="build-title">
   <div class="wrap">
     <p class="section-label"><span class="en">Our technology</span><span class="ja">技術紹介</span></p>
-    <h2 id="build-title"><span class="en">The technology behind what we build</span><span class="ja">私たちのものづくりを支える技術</span></h2>
+    <h2 id="build-title"><span class="en">Artificial intelligence, built to be used everywhere</span><span class="ja">世界中で使われるための、人工知能</span></h2>
     <p class="build-intro">
-      <span class="en">We are, first and last, an information technology company. Software is what lets ability cross a border without anyone having to move, and these are the technologies we do that with — the means to the work above, not a catalogue of services.</span>
-      <span class="ja">私たちは何よりもまず、情報技術の会社です。誰も移動することなく能力が国境を越えられるようにするもの、それがソフトウェアです。ここに挙げるのは、そのための技術です。サービスの一覧ではなく、先に述べた目的を果たすための手段としてご覧ください。</span>
+      <span class="en">Our objective is to create artificial intelligence products used extensively across the globe. That begins with models carrying broad, comprehensive knowledge across nearly every domain, and continues with the products built on them. We intend these to become the AI products the world reaches for first.</span>
+      <span class="ja">私たちの目標は、世界中で広く使われる人工知能プロダクトをつくることです。その出発点は、ほぼあらゆる領域にわたる広く包括的な知識を備えたモデル。そしてその上に、人々が実際に使うプロダクトを重ねていきます。これらを、世界が最初に手を伸ばすAIプロダクトにすることを目指しています。</span>
     </p>
 
     <div class="tech-list">
 
-      <!-- AI -->
+      <!-- The model -->
       <article class="tech-row reveal">
         <figure class="tech-figure"><img src="images/tech-ai.svg" alt="Illustration: a neural network flowing into a snowflake-shaped core" width="560" height="400" loading="lazy"></figure>
         <div>
           <div class="tech-no">01</div>
-          <h3><span class="en">AI &amp; machine learning</span><span class="ja">AI・機械学習</span></h3>
+          <h3><span class="en">Moiwa — one model, nearly every domain</span><span class="ja">Moiwa ― ひとつのモデルで、ほぼあらゆる領域へ</span></h3>
           <p class="tech-lead">
-            <span class="en">Like snow, data becomes powerful when countless small pieces come together. We turn it into AI people can rely on in their daily work: assistants, agents and analytics designed around real needs.</span>
-            <span class="ja">雪と同じように、データも無数の小さなかけらが集まったとき大きな力になります。私たちはそれを、日々の仕事で頼れるAIへと変えます。実際のニーズを起点に設計したアシスタント、エージェント、分析基盤です。</span>
+            <span class="en">From the summit of one mountain you can see an entire city. Moiwa is the foundation model we are building on that principle: a single model with broad, comprehensive knowledge spanning nearly every domain, rather than a narrow tool that works in only one. Breadth is the point. Most real problems sit between fields, and a model that knows something of everything can carry an idea from one domain into another.</span>
+            <span class="ja">ひとつの山の頂から、街のすべてが見渡せます。Moiwaは、その考え方でつくっている基盤モデルです。ひとつの領域だけで動く狭い道具ではなく、ほぼあらゆる領域にわたる広く包括的な知識を備えた単一のモデル。広さこそが本質です。現実の課題はたいてい分野の境目にあり、何にでも通じたモデルは、ある領域の着想を別の領域へ運ぶことができます。</span>
           </p>
           <ul class="caps">
-            <li class="en"><strong>LLM applications &amp; AI agents</strong>Assistants that understand context, use tools, and complete multi-step tasks.</li>
-            <li class="ja"><strong>LLMアプリケーション・AIエージェント</strong>文脈を理解し、ツールを使いこなし、複数の手順にわたる作業を遂行するアシスタント。</li>
-            <li class="en"><strong>Retrieval-augmented generation (RAG)</strong>Answers grounded in your own documents and data, with sources you can check.</li>
-            <li class="ja"><strong>検索拡張生成（RAG）</strong>自社の文書やデータに基づき、根拠を確認できる回答を生成。</li>
-            <li class="en"><strong>Machine learning &amp; data analysis</strong>Prediction, classification, and recommendation models built on your data.</li>
-            <li class="ja"><strong>機械学習・データ分析</strong>お客さまのデータを活かした予測・分類・レコメンドモデル。</li>
-            <li class="en"><strong>Vision &amp; language</strong>Image recognition, OCR, and multilingual text understanding.</li>
-            <li class="ja"><strong>画像・言語処理</strong>画像認識、OCR、多言語テキストの理解。</li>
+            <li class="en"><strong>Broad general knowledge</strong>Science, law, medicine, engineering, finance, the arts and the everyday — one model trained to be useful across nearly all of it.</li>
+            <li class="ja"><strong>広範な一般知識</strong>科学、法務、医療、工学、金融、芸術、そして日常。そのほぼすべてで役に立つよう訓練された単一のモデル。</li>
+            <li class="en"><strong>Natively multilingual</strong>Japanese and English as first-class languages from the start, not English with translation added afterwards.</li>
+            <li class="ja"><strong>多言語ネイティブ</strong>日本語と英語を最初から同格に。英語のモデルに後から翻訳を足すのではありません。</li>
+            <li class="en"><strong>Reasoning over long context</strong>Holding a large problem in view and working through it step by step.</li>
+            <li class="ja"><strong>長い文脈での推論</strong>大きな問題を見渡したまま、順を追って考え抜きます。</li>
+            <li class="en"><strong>Tools and answers you can check</strong>Using software to act, and citing sources the reader can verify.</li>
+            <li class="ja"><strong>ツール利用と検証できる回答</strong>ソフトウェアを使って実行し、読む人が確かめられる根拠を示します。</li>
           </ul>
           <ul class="chips" aria-label="Tools">
-            <li>Python</li><li>PyTorch</li><li>LLM APIs</li><li>RAG</li><li>Vector search</li><li>MLOps</li>
+            <li>Foundation models</li><li>Pre-training</li><li>Post-training</li><li>Evaluation</li><li>Multilingual</li><li>PyTorch</li>
           </ul>
         </div>
       </article>
 
-      <!-- Blockchain -->
+      <!-- The products built on it -->
       <article class="tech-row reverse reveal">
-        <figure class="tech-figure"><img src="images/tech-blockchain.svg" alt="Illustration: a chain of hexagonal ice-crystal blocks, protected by a shield and lock" width="560" height="400" loading="lazy"></figure>
-        <div>
-          <div class="tech-no">02</div>
-          <h3><span class="en">Blockchain &amp; smart contracts</span><span class="ja">ブロックチェーン・スマートコントラクト</span></h3>
-          <p class="tech-lead">
-            <span class="en">Systems whose records anyone can verify — as verifiable as a snowflake under a lens. Security comes first, because blockchain code handles real value.</span>
-            <span class="ja">誰もが記録を検証できるシステムを。レンズ越しの雪の結晶のように確かめられるものを。ブロックチェーンのコードは実際の価値を扱うからこそ、セキュリティを最優先にします。</span>
-          </p>
-          <ul class="caps">
-            <li class="en"><strong>Smart contract development</strong>On EVM chains (Ethereum, Polygon, and layer-2 networks) and Solana.</li>
-            <li class="ja"><strong>スマートコントラクト開発</strong>EVM系チェーン（Ethereum、Polygon、レイヤー2）およびSolanaに対応。</li>
-            <li class="en"><strong>Security &amp; auditing</strong>Thorough testing and code review before anything reaches mainnet.</li>
-            <li class="ja"><strong>セキュリティ・監査</strong>メインネット公開前の徹底したテストとコードレビュー。</li>
-            <li class="en"><strong>Web3 applications</strong>Wallets, tokens, NFTs, and decentralized apps that everyday users can actually use.</li>
-            <li class="ja"><strong>Web3アプリケーション</strong>一般のユーザーにも使いやすいウォレット、トークン、NFT、分散型アプリ。</li>
-            <li class="en"><strong>On-chain data</strong>Indexing and analytics that turn blockchain data into insight.</li>
-            <li class="ja"><strong>オンチェーンデータ</strong>ブロックチェーン上のデータをインデックス化・分析し、価値ある知見へ。</li>
-          </ul>
-          <ul class="chips" aria-label="Tools">
-            <li>Solidity</li><li>Rust</li><li>EVM</li><li>Solana</li><li>Hardhat</li><li>Foundry</li><li>ethers.js</li>
-          </ul>
-        </div>
-      </article>
-
-      <!-- Product engineering -->
-      <article class="tech-row reveal">
         <figure class="tech-figure"><img src="images/tech-product.svg" alt="Illustration: a web app and a matching mobile app" width="560" height="400" loading="lazy"></figure>
         <div>
-          <div class="tech-no">03</div>
-          <h3><span class="en">Product engineering &amp; design</span><span class="ja">プロダクト開発・デザイン</span></h3>
+          <div class="tech-no">02</div>
+          <h3><span class="en">The products people use every day</span><span class="ja">日々使われるプロダクト</span></h3>
           <p class="tech-lead">
-            <span class="en">Like a Snow Festival sculpture: full of imagination, carefully crafted, and worth coming back to. We take products from first sketch to release, across web and mobile.</span>
-            <span class="ja">雪まつりの雪像のように、想像力にあふれ、丁寧につくり込まれ、また見に来たくなるものを。最初のスケッチからリリースまで、Webとモバイルの両方で形にします。</span>
+            <span class="en">A model nobody can use is just a result. These are the products we are building on Moiwa — each shaped around a different way people actually work, and every one of them answering in the language of the person asking.</span>
+            <span class="ja">誰も使えないモデルは、ただの成果にすぎません。Moiwaの上につくっているのが、次のプロダクトです。それぞれ人々の働き方の違いに合わせて形づくり、いずれも尋ねた人の言語で応えます。</span>
           </p>
           <ul class="caps">
-            <li class="en"><strong>Web applications</strong>Fast, accessible, multilingual web apps and services.</li>
-            <li class="ja"><strong>Webアプリケーション</strong>高速で、誰にでも使いやすく、多言語に対応したWebアプリ・サービス。</li>
-            <li class="en"><strong>Mobile apps</strong>iOS and Android apps from a shared codebase.</li>
-            <li class="ja"><strong>モバイルアプリ</strong>共通のコードベースによるiOS・Androidアプリ。</li>
-            <li class="en"><strong>UX/UI design</strong>User research, prototyping, and design systems.</li>
-            <li class="ja"><strong>UX/UIデザイン</strong>ユーザーリサーチ、プロトタイピング、デザインシステム。</li>
-            <li class="en"><strong>Integration</strong>Bringing AI and blockchain features into products people already use.</li>
-            <li class="ja"><strong>システム統合</strong>使い慣れたプロダクトにAIやブロックチェーンの機能を組み込みます。</li>
+            <li class="en"><strong>Moiwa Assist</strong>The everyday assistant: ask anything, in any language we support, and get an answer you can act on. For individuals and for teams.</li>
+            <li class="ja"><strong>Moiwa Assist</strong>日々のアシスタント。対応するどの言語でも何でも尋ねられ、すぐ行動に移せる答えが返ります。個人にも、チームにも。</li>
+            <li class="en"><strong>Moiwa Agents</strong>Work that takes many steps — research, data preparation, reporting, routine operations — carried out with real tools, not merely described.</li>
+            <li class="ja"><strong>Moiwa Agents</strong>何段階も要する仕事を。調査、データ整備、報告、定型業務を、説明するだけでなく実際のツールで遂行します。</li>
+            <li class="en"><strong>Moiwa Crystal</strong>Domain adaptation: shape the general model around the knowledge of a single organisation, without giving up its breadth. No two are alike.</li>
+            <li class="ja"><strong>Moiwa Crystal</strong>ドメイン適応。汎用モデルの広さを損なわずに、ひとつの組織がもつ知識に合わせて形づくります。同じものはふたつとありません。</li>
+            <li class="en"><strong>Developer API and SDKs</strong>The same model and tools, published so other companies can build their own products on them.</li>
+            <li class="ja"><strong>開発者向けAPI・SDK</strong>同じモデルとツールを公開し、他社が自社プロダクトを築けるようにします。</li>
           </ul>
           <ul class="chips" aria-label="Tools">
-            <li>TypeScript</li><li>React</li><li>Next.js</li><li>Node.js</li><li>React Native</li><li>Flutter</li><li>Figma</li>
+            <li>TypeScript</li><li>React</li><li>Next.js</li><li>React Native</li><li>Python</li><li>API</li><li>SDKs</li>
           </ul>
         </div>
       </article>
 
-      <!-- Cloud & security -->
-      <article class="tech-row reverse reveal">
+      <!-- Serving it worldwide -->
+      <article class="tech-row reveal">
         <figure class="tech-figure"><img src="images/tech-cloud.svg" alt="Illustration: a cloud connected to server racks, with a security shield" width="560" height="400" loading="lazy"></figure>
         <div>
-          <div class="tech-no">04</div>
-          <h3><span class="en">Cloud, infrastructure &amp; security</span><span class="ja">クラウド・インフラ・セキュリティ</span></h3>
+          <div class="tech-no">03</div>
+          <h3><span class="en">Serving it to the world, dependably</span><span class="ja">世界へ、確かに届ける</span></h3>
           <p class="tech-lead">
-            <span class="en">Like Sapporo's snowmelt feeding the city's water, good infrastructure works quietly in the background. We build systems that are dependable and protect the information entrusted to us.</span>
-            <span class="ja">札幌の雪解け水が街の暮らしを支えるように、優れたインフラは静かに働き続けます。確かに動き続け、託された情報を守るシステムを築きます。</span>
+            <span class="en">The snow around Sapporo melts into the rivers that supply the city with water, and nobody has to think about it. Software used by millions has to work that way too. Being used across the globe is an engineering problem before it is a commercial one.</span>
+            <span class="ja">札幌の雪は解けて川に流れ込み、街に水をもたらします。誰も意識する必要はありません。何百万人に使われるソフトウェアも、そうあるべきです。世界中で使われることは、商いの問題である前に技術の問題です。</span>
           </p>
           <ul class="caps">
-            <li class="en"><strong>Cloud architecture</strong>Scalable systems on AWS and Google Cloud.</li>
-            <li class="ja"><strong>クラウドアーキテクチャ</strong>AWS・Google Cloud上のスケーラブルなシステム。</li>
-            <li class="en"><strong>DevOps &amp; CI/CD</strong>Automated testing and deployment, containers, and infrastructure as code.</li>
-            <li class="ja"><strong>DevOps・CI/CD</strong>テストとデプロイの自動化、コンテナ、Infrastructure as Code。</li>
-            <li class="en"><strong>Security &amp; data protection</strong>Secure-by-design development, encryption, and access control.</li>
-            <li class="ja"><strong>セキュリティ・データ保護</strong>設計段階からの安全性、暗号化、アクセス制御。</li>
-            <li class="en"><strong>Monitoring &amp; reliability</strong>Observability and incident response that keep services running.</li>
-            <li class="ja"><strong>監視・信頼性</strong>サービスを止めないための可観測性と障害対応。</li>
+            <li class="en"><strong>Inference at global scale</strong>Serving the model close to the people using it, at a cost that keeps it within their reach.</li>
+            <li class="ja"><strong>グローバル規模の推論</strong>使う人の近くでモデルを動かし、手の届く費用で提供します。</li>
+            <li class="en"><strong>Evaluation and safety</strong>Measuring what the model gets right and wrong before anyone has to depend on it.</li>
+            <li class="ja"><strong>評価と安全性</strong>誰かが頼らざるを得なくなる前に、モデルの正しさと誤りを測ります。</li>
+            <li class="en"><strong>Protection of entrusted data</strong>Clear limits on what is stored, and on what is never used for training.</li>
+            <li class="ja"><strong>託されたデータの保護</strong>何を保存し、何を学習に使わないのかを明確に定めます。</li>
+            <li class="en"><strong>Reliability</strong>Observability and incident response that keep the service answering.</li>
+            <li class="ja"><strong>信頼性</strong>応答を止めないための可観測性と障害対応。</li>
           </ul>
           <ul class="chips" aria-label="Tools">
-            <li>AWS</li><li>Google Cloud</li><li>Docker</li><li>Kubernetes</li><li>Terraform</li><li>GitHub Actions</li>
+            <li>GPU clusters</li><li>vLLM</li><li>Kubernetes</li><li>Terraform</li><li>AWS</li><li>Google Cloud</li>
           </ul>
         </div>
       </article>
@@ -816,19 +612,19 @@
       <ol class="steps">
         <li class="reveal">
           <h4><span class="en">Look out</span><span class="ja">見渡す</span></h4>
-          <p><span class="en">Understand how people live and work, and where technology can truly help.</span><span class="ja">人々の暮らしや仕事を理解し、テクノロジーが本当に役立つ場所を見極めます。</span></p>
+          <p><span class="en">Find where AI genuinely helps people, not merely where it impresses them.</span><span class="ja">AIが人を感心させる場所ではなく、本当に役に立つ場所を見極めます。</span></p>
         </li>
         <li class="reveal">
-          <h4><span class="en">Start small, in the open</span><span class="ja">小さく、開かれた場で始める</span></h4>
-          <p><span class="en">Build a visible prototype early, and share it with customers and partners.</span><span class="ja">早い段階で目に見える試作をつくり、お客さまやパートナーと共有します。</span></p>
+          <h4><span class="en">Train and measure</span><span class="ja">学習し、測る</span></h4>
+          <p><span class="en">Build the model, then test it honestly — including where it still falls short.</span><span class="ja">モデルをつくり、誠実に検証します。まだ及ばないところも含めて。</span></p>
         </li>
         <li class="reveal">
           <h4><span class="en">Ship with care</span><span class="ja">丁寧に届ける</span></h4>
-          <p><span class="en">Release with security, reliability, and the protection of entrusted information built in.</span><span class="ja">セキュリティと信頼性、託された情報の保護を組み込んでリリースします。</span></p>
+          <p><span class="en">Release with safety, reliability and the protection of entrusted information built in.</span><span class="ja">安全性と信頼性、託された情報の保護を組み込んでリリースします。</span></p>
         </li>
         <li class="reveal">
-          <h4><span class="en">Learn and rebuild</span><span class="ja">学び、つくり直す</span></h4>
-          <p><span class="en">Like the Snow Festival each winter, come back better every season.</span><span class="ja">毎年の雪まつりのように、季節ごとにより良くして戻ってきます。</span></p>
+          <h4><span class="en">Learn and retrain</span><span class="ja">学び、鍛え直す</span></h4>
+          <p><span class="en">Every release teaches us what to improve. Like the snow, come back better each season.</span><span class="ja">リリースごとに、次に何を良くすべきかを学びます。雪のように、季節ごとにより良くなって戻ってきます。</span></p>
         </li>
       </ol>
     </div>
@@ -842,9 +638,9 @@
     <h2 id="join-title"><span class="en">Every snowfall starts with a few flakes — and none of them started here.</span><span class="ja">雪景色は、ひとひらから始まる。そのどれも、ここで生まれたものではない。</span></h2>
     <div class="join-grid">
       <div class="join-card reveal">
-        <h3><span class="en">Work with us</span><span class="ja">採用情報</span></h3>
-        <p><span class="en">Your ability shouldn't be limited by where you happen to be. Engineers, designers and researchers in any country: work with us from where you are, on problems and markets you would not otherwise reach.</span><span class="ja">能力が、いる場所によって狭められてしまうべきではありません。国を問わず、エンジニア、デザイナー、研究者の皆さん。いまいる場所から私たちと働き、ひとりでは届かなかった課題や市場に関わってください。</span></p>
-        <a class="btn btn-dark" href="#contact" data-topic="Careers"><span class="en">Get in touch about careers</span><span class="ja">採用について問い合わせる</span></a>
+        <h3><span class="en">Work with us</span><span class="ja">協働について</span></h3>
+        <p><span class="en">Your ability shouldn't be limited by where you happen to be. Engineers, designers, researchers — and people whose strengths lie outside engineering — partner with us from where you are, on problems and markets you would not otherwise reach.</span><span class="ja">能力が、いる場所によって狭められてしまうべきではありません。エンジニア、デザイナー、研究者。そして技術以外に強みを持つ方も。いまいる場所からパートナーとして私たちと関わり、ひとりでは届かなかった課題や市場に取り組んでください。</span></p>
+        <a class="btn btn-dark" href="#contact" data-topic="Collaboration"><span class="en">Get in touch about collaborating</span><span class="ja">協働について問い合わせる</span></a>
       </div>
       <div class="join-card reveal">
         <h3><span class="en">Partner with us</span><span class="ja">パートナーシップ</span></h3>
@@ -888,8 +684,8 @@
       <p class="section-label"><span class="en">Contact</span><span class="ja">お問い合わせ</span></p>
       <h2 id="contact-title"><span class="en">Send us a message</span><span class="ja">メッセージを送る</span></h2>
       <p>
-        <span class="en">Questions about a project, a partnership, or joining the team? Write to us in English or Japanese.</span>
-        <span class="ja">プロジェクトのご相談、パートナーシップ、採用に関するご質問など、英語・日本語どちらでもお気軽にお寄せください。</span>
+        <span class="en">Questions about a project, a partnership, or collaborating with us? Write to us in English or Japanese.</span>
+        <span class="ja">プロジェクトのご相談、パートナーシップ、協働に関するご質問など、英語・日本語どちらでもお気軽にお寄せください。</span>
       </p>
       <ul class="info-list">
         <li>
@@ -930,7 +726,7 @@
           <select class="input topic-select" id="c-topic" name="topic">
             <option value="Partnership" data-en="Partnership" data-ja="パートナーシップ">Partnership</option>
             <option value="Project consultation" data-en="Project consultation" data-ja="プロジェクトのご相談">Project consultation</option>
-            <option value="Careers" data-en="Careers" data-ja="採用">Careers</option>
+            <option value="Collaboration" data-en="Collaboration" data-ja="協働">Collaboration</option>
             <option value="Media / press" data-en="Media / press" data-ja="取材・メディア">Media / press</option>
             <option value="Other" data-en="Other" data-ja="その他">Other</option>
           </select>
@@ -968,8 +764,8 @@
       </div>
       <ul class="footer-links">
         <li><a href="#vision"><span class="en">Vision</span><span class="ja">ビジョン</span></a></li>
-        <li><a href="#philosophy"><span class="en">Philosophy</span><span class="ja">経営理念</span></a></li>
         <li><a href="#build"><span class="en">Technology</span><span class="ja">技術紹介</span></a></li>
+        <li><a href="#collaborate"><span class="en">Collaborate</span><span class="ja">協働</span></a></li>
         <li><a href="#join"><span class="en">Join us</span><span class="ja">共に創る</span></a></li>
         <li><a href="#call"><span class="en">Book a call</span><span class="ja">通話予約</span></a></li>
         <li><a href="#contact"><span class="en">Contact</span><span class="ja">お問い合わせ</span></a></li>
@@ -979,14 +775,6 @@
       <span><span class="en">Sapporo, Hokkaido, Japan</span><span class="ja">北海道札幌市</span></span>
       <span>&copy; <span id="year">2026</span> SnowMoiwa Software</span>
     </div>
-    <p class="credits">
-      <span class="en">Photos via Wikimedia Commons:</span><span class="ja">写真提供（Wikimedia Commons）：</span>
-      <a href="https://commons.wikimedia.org/wiki/File:City_nightscape_of_Sapporo_from_Mt._Moiwa_20260703b.jpg">Sapporo nightscape from Mt. Moiwa</a> by 掬茶 (<a href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0</a>) ·
-      <a href="https://commons.wikimedia.org/wiki/File:SapporoFestival8.JPG">Ice sculptures</a> by Materialscientist (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>) ·
-      <a href="https://commons.wikimedia.org/wiki/File:Sapporo_city_winter.jpg">Sapporo city winter</a> by Nkns (<a href="https://creativecommons.org/licenses/by-sa/3.0/">CC BY-SA 3.0</a>) ·
-      <a href="https://commons.wikimedia.org/wiki/File:Odori_Park_Sapporo_Snow_Festival_2007.JPG">Odori Park, Snow Festival 2007</a> by Eckhard Pecher (<a href="https://creativecommons.org/licenses/by/2.5/">CC BY 2.5</a>).
-      <span class="en">Resized from the originals.</span><span class="ja">原画像を縮小して使用しています。</span>
-    </p>
   </div>
 </footer>
 
@@ -1057,56 +845,132 @@
     g.appendChild(c);
   }
 
-  /* ---------- Snowfall ---------- */
-  var canvas = document.getElementById('snow');
+  /* ---------- Neural network over the city ----------
+     Our goal is AI products that compete globally, so the hero draws a network:
+     nodes drift like snow, link up whenever they come close, and pass signals
+     along those links. Palette is the site's own — ice blue for the mesh, the
+     warm summit-light gold for the signals travelling across it. */
+  var canvas = document.getElementById('heroNet');
   var ctx = canvas.getContext('2d');
   var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-  var flakes = [], W = 0, H = 0, dpr = 1, running = true, raf = null;
+  var nodes = [], signals = [], W = 0, H = 0, dpr = 1, running = true, raf = null;
+  var LINK = 150;                  // nodes closer than this are drawn linked
+  var ICE = '169,210,236';         // --ice
+  var GOLD = '255,231,168';        // the summit light in the mountain SVG
 
-  function makeFlake(randomY) {
-    var depth = Math.random();            // 0 = far, 1 = near
+  function makeNode() {
+    var hub = Math.random() < 0.18;
     return {
       x: Math.random() * W,
-      y: randomY ? Math.random() * H : -10,
-      r: 0.6 + depth * 2.4,
-      vy: 0.25 + depth * 1.1,
-      vx: (Math.random() - 0.5) * 0.3,
-      sway: Math.random() * Math.PI * 2,
-      a: 0.35 + depth * 0.6
+      y: Math.random() * H,
+      vx: (Math.random() - 0.5) * 0.22,
+      vy: (Math.random() - 0.5) * 0.22,
+      r: hub ? 2.2 + Math.random() * 1.2 : 1 + Math.random() * 0.9,
+      a: hub ? 0.9 : 0.4 + Math.random() * 0.35,
+      hub: hub,
+      sway: Math.random() * Math.PI * 2
     };
   }
+
   function resize() {
     dpr = Math.min(window.devicePixelRatio || 1, 2);
     W = canvas.clientWidth; H = canvas.clientHeight;
     canvas.width = W * dpr; canvas.height = H * dpr;
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
-    var target = Math.round(Math.min(220, W * H / 7000));
-    flakes = [];
-    for (var i = 0; i < target; i++) flakes.push(makeFlake(true));
+    LINK = W < 700 ? 110 : 150;
+    var target = Math.round(Math.min(90, W * H / 14000));
+    nodes = []; signals = [];
+    for (var i = 0; i < target; i++) nodes.push(makeNode());
     if (reduce) draw();
   }
-  function draw() {
-    ctx.clearRect(0, 0, W, H);
-    for (var i = 0; i < flakes.length; i++) {
-      var f = flakes[i];
-      ctx.globalAlpha = f.a;
-      ctx.beginPath();
-      ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
-      ctx.fillStyle = '#f5f8fb';
-      ctx.fill();
+
+  // fire a signal from one node to a linked neighbour
+  function spawnSignal(from) {
+    if (signals.length > 14 || !nodes[from]) return;
+    var near = [], i, dx, dy;
+    for (i = 0; i < nodes.length; i++) {
+      if (i === from) continue;
+      dx = nodes[i].x - nodes[from].x; dy = nodes[i].y - nodes[from].y;
+      if (dx * dx + dy * dy < LINK * LINK) near.push(i);
     }
-    ctx.globalAlpha = 1;
+    if (!near.length) return;
+    signals.push({
+      from: from, to: near[(Math.random() * near.length) | 0],
+      t: 0, v: 0.012 + Math.random() * 0.014, hops: 0
+    });
   }
-  function step() {
-    for (var i = 0; i < flakes.length; i++) {
-      var f = flakes[i];
-      f.sway += 0.01;
-      f.y += f.vy;
-      f.x += f.vx + Math.sin(f.sway) * 0.3;
-      if (f.y > H + 10) { flakes[i] = makeFlake(false); }
-      if (f.x > W + 10) f.x = -10;
-      if (f.x < -10) f.x = W + 10;
+
+  function draw() {
+    var i, j, n, dx, dy, d2;
+    ctx.clearRect(0, 0, W, H);
+
+    // the mesh
+    ctx.lineWidth = 1;
+    for (i = 0; i < nodes.length; i++) {
+      for (j = i + 1; j < nodes.length; j++) {
+        dx = nodes[j].x - nodes[i].x; dy = nodes[j].y - nodes[i].y;
+        d2 = dx * dx + dy * dy;
+        if (d2 > LINK * LINK) continue;
+        ctx.strokeStyle = 'rgba(' + ICE + ',' + ((1 - Math.sqrt(d2) / LINK) * 0.3).toFixed(3) + ')';
+        ctx.beginPath();
+        ctx.moveTo(nodes[i].x, nodes[i].y);
+        ctx.lineTo(nodes[j].x, nodes[j].y);
+        ctx.stroke();
+      }
     }
+
+    // the nodes, hubs with a soft halo
+    for (i = 0; i < nodes.length; i++) {
+      n = nodes[i];
+      if (n.hub) {
+        ctx.fillStyle = 'rgba(' + ICE + ',.12)';
+        ctx.beginPath(); ctx.arc(n.x, n.y, n.r * 3.4, 0, Math.PI * 2); ctx.fill();
+      }
+      ctx.fillStyle = 'rgba(245,248,251,' + n.a.toFixed(2) + ')';
+      ctx.beginPath(); ctx.arc(n.x, n.y, n.r, 0, Math.PI * 2); ctx.fill();
+    }
+
+    // signals in flight, each with a short comet trail
+    for (i = 0; i < signals.length; i++) {
+      var s = signals[i], a = nodes[s.from], b = nodes[s.to];
+      if (!a || !b) continue;
+      var x = a.x + (b.x - a.x) * s.t, y = a.y + (b.y - a.y) * s.t;
+      var back = Math.max(0, s.t - 0.22);
+      var tx = a.x + (b.x - a.x) * back, ty = a.y + (b.y - a.y) * back;
+      var trail = ctx.createLinearGradient(tx, ty, x, y);
+      trail.addColorStop(0, 'rgba(' + GOLD + ',0)');
+      trail.addColorStop(1, 'rgba(' + GOLD + ',.75)');
+      ctx.strokeStyle = trail; ctx.lineWidth = 1.6;
+      ctx.beginPath(); ctx.moveTo(tx, ty); ctx.lineTo(x, y); ctx.stroke();
+      ctx.fillStyle = 'rgba(' + GOLD + ',.95)';
+      ctx.beginPath(); ctx.arc(x, y, 1.7, 0, Math.PI * 2); ctx.fill();
+    }
+    ctx.lineWidth = 1;
+  }
+
+  function step() {
+    var i, n, s;
+    for (i = 0; i < nodes.length; i++) {
+      n = nodes[i];
+      n.sway += 0.006;
+      n.x += n.vx + Math.sin(n.sway) * 0.07;
+      n.y += n.vy;
+      if (n.x < -20) n.x = W + 20; else if (n.x > W + 20) n.x = -20;
+      if (n.y < -20) n.y = H + 20; else if (n.y > H + 20) n.y = -20;
+    }
+    // advance signals; an arriving one usually hops onward through the network
+    for (i = signals.length - 1; i >= 0; i--) {
+      s = signals[i];
+      s.t += s.v;
+      if (s.t < 1) continue;
+      signals.splice(i, 1);
+      if (s.hops < 3 && Math.random() < 0.65) {
+        var before = signals.length;
+        spawnSignal(s.to);
+        if (signals.length > before) signals[signals.length - 1].hops = s.hops + 1;
+      }
+    }
+    if (Math.random() < 0.05) spawnSignal((Math.random() * nodes.length) | 0);
     draw();
     if (running) raf = requestAnimationFrame(step);
   }
